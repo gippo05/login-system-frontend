@@ -10,7 +10,7 @@ const DashboardPage = () => {
             <ClockingSystem />
         </div>
         
-        <div className="mt-5 flex gap-68">
+        <div className="mt-5 flex gap-42">
             <StatusDisplay />
             <TotalWorkingHours />
         </div>
