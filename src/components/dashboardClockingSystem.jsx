@@ -1,60 +1,78 @@
+const ClockingSystem = ({
+  onStatusChange,
+  temporaryStatus,
+  setTemporaryStatus,
+  temporaryShiftStat,
+  setTemporaryShiftStat,
+  status
+}) => { 
+  const date = new Date();
 
-
-const ClockingSystem = () => { 
-
-    const date = new Date();
-
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
    
-    const dayOfWeek = days[date.getDay()];
-    const month = months[date.getMonth()];
-    const currentDate = date.getDate();
-    const year = date.getFullYear();
+  const dayOfWeek = days[date.getDay()];
+  const month = months[date.getMonth()];
+  const currentDate = date.getDate();
+  const year = date.getFullYear();
 
-    const today = dayOfWeek + ", " + month + " " + currentDate + ", " + year;
+  const today = `${dayOfWeek}, ${month} ${currentDate}, ${year}`;
 
+  return (
+    <div className="w-full bg-white rounded-2xl shadow-lg p-8 flex items-center justify-between mt-5">
+    
+      <div>
+        <h2 className="text-3xl font-bold text-gray-800">👋 Welcome, User!</h2>
+        <p className="text-gray-500 mt-2">{today}</p>
+      </div>
 
-
-
-    return (
-        <>
-     <div className="w-full h-48 bg-[#f5f5f5] flex items-center justify-between px-6 shadow-md rounded-2xl">
-  <h2 className="text-4xl font-semibold">Welcome, User!</h2>
-
-  {/* Right side container */}
-  <div className="flex flex-col items-end">
-    <h3 className="text-2xl">{today}</h3>
-
-    {/* Group select + button side by side */}
-    <div className="flex items-center gap-4 mt-6">
-      <select name="worktype" id="worktype" className="border-2 border-gray-300 rounded-xl p-2 text-lg cursor-pointer hover:border-blue-500 focus:outline-none">
-        <option value="WFH">WFH</option>
-        <option value="RTO">RTO</option>
-      </select>
-      <select
-        name="status"
-        id="status"
-        className="border-2 border-gray-300 rounded-xl p-2 text-lg cursor-pointer hover:border-blue-500 focus:outline-none"
-      >
-        <option value="Login">Login</option>
-        <option value="Lunch">Lunch</option>
-        <option value="End Lunch">End-Lunch</option>
-        <option value="Logout">Logout</option>
-      </select>
-
-      <button className="border-2 border-blue-500 rounded-2xl p-2 px-10 bg-blue-500 text-white font-bold hover:bg-[#f5f5f5] hover:text-black cursor-pointer text-2xl">
-        Change Status
-      </button>
-    </div>
-  </div>
-</div>
-
-
+      
+      <div className="flex items-center gap-4">
         
-        </>
-    )
+        <select
+          name="worktype"
+          id="worktype"
+          value={temporaryShiftStat}
+          onChange={(e) => setTemporaryShiftStat(e.target.value)}
+          disabled={status === "Login"}
+          className="px-4 py-2 text-lg rounded-xl border border-gray-300 
+                     focus:ring-2 focus:ring-blue-400 focus:outline-none
+                     disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed
+                     transition-colors duration-200 cursor-pointer"
+        >
+          <option value="WFH">WFH</option>
+          <option value="RTO">RTO</option>
+        </select>
 
-}
+        {/* Status select */}
+        <select
+          name="status"
+          id="status"
+          value={temporaryStatus}
+          onChange={(e) => setTemporaryStatus(e.target.value)}
+          className="px-4 py-2 text-lg rounded-xl border border-gray-300 
+                     focus:ring-2 focus:ring-blue-400 focus:outline-none
+                     transition-colors duration-200 cursor-pointer"
+        >
+          <option value="Default">Please Select an Option</option>
+          <option value="Login">Login</option>
+          <option value="Lunch">Lunch</option>
+          <option value="End Lunch">End Lunch</option>
+          <option value="Logout">Logout</option>
+        </select>
+
+        {/* Button */}
+        <button
+          onClick={onStatusChange}
+          className="px-6 py-2 text-lg font-semibold text-white bg-blue-500 
+                     rounded-xl shadow-md hover:bg-blue-600 active:bg-blue-700 
+                     transition-all duration-200 cursor-pointer"
+        >
+          Change Status
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default ClockingSystem;

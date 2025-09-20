@@ -24,7 +24,7 @@ const handleLogout = () =>{
 }
 
   return (
-    <div className="w-64 h-screen sticky top-0 bg-[#F5F5F5] flex flex-col p-5 shadow-md">
+    <div className="w-64 h-screen sticky top-0 bg-[#2563EB] flex flex-col p-5 shadow-md text-white">
       {/* Logo */}
       <div className="mb-10 w-full flex justify-center">
         {/* <img src={main_logo} alt="logo" className="w-40" /> */}

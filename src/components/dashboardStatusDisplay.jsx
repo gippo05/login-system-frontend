@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const StatusDisplay = () => {
+const StatusDisplay = ({status, shiftType}) => {
   const [currentTime, setCurrentTime] = useState("");
 
   // Format function with AM/PM
@@ -29,15 +29,26 @@ const StatusDisplay = () => {
   }, []);
 
   return (
-    <div className="w-3xl h-48 bg-[#f5f5f5] flex justify-between px-6 shadow-md rounded-2xl">
-      <div>
-        <h4 className="font-semibold mt-5">STATUS</h4>
-        <h1 className="text-3xl mt-5 font-bold">Logged In</h1>
-        <h3 className="text-3xl mt-5">{currentTime}</h3>
-      </div>
+    <div className="w-3xl h-24 bg-[#f5f5f5] flex items-center justify-around px-6 shadow-md rounded-2xl">
+  {/* Status */}
+  <div className="text-center">
+    <h4 className="font-semibold text-sm text-gray-600">Status</h4>
+    <h2 className="text-xl font-bold">{status}</h2>
+  </div>
 
+  {/* Shift Type */}
+  <div className="text-center">
+    <h4 className="font-semibold text-sm text-gray-600">Shift Type</h4>
+    <h2 className="text-xl font-bold">{shiftType}</h2>
+  </div>
 
-    </div>
+  {/* Time */}
+  <div className="text-center">
+    <h4 className="font-semibold text-sm text-gray-600">Time</h4>
+    <h2 className="text-xl font-bold">{currentTime}</h2>
+  </div>
+</div>
+
   );
 };
 

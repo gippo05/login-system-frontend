@@ -1,11 +1,21 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import SideBar from './components/Sidebar.jsx'
 import './App.css'
 import TopBar from './components/TopBar.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
+import { useState } from 'react'
 
 function App() {
   
+  const [status, setStatus] = useState('Logged out');
+  const [shiftType, setShiftType] = useState('RTO');
+  const [temporaryShiftStat, setTemporaryShiftStat] = useState('RTO');
+  const [temporaryStatus, setTemporaryStatus] = useState('Logged out');
+
+  const onStatusChange = (e) => {
+    setStatus(temporaryStatus);
+    setShiftType(temporaryShiftStat);
+  }
 
   return (
     <>
@@ -16,7 +26,15 @@ function App() {
 
         <main className='flex-1 p-6'>
           <Routes>
-            <Route path='/*' element = {<DashboardPage />} />
+            <Route path='/*' element = {<DashboardPage 
+            onStatusChange={onStatusChange} 
+            status = {status}
+            temporaryStatus = {temporaryStatus}
+            shiftType = {shiftType}
+            temporaryShiftStat = {temporaryShiftStat}
+            setTemporaryStatus = {setTemporaryStatus}
+            setTemporaryShiftStat ={setTemporaryShiftStat}
+            />} />
 
           </Routes>
 
