@@ -29,7 +29,8 @@ const handleLogout = () =>{
       <div className="mb-10 w-full flex justify-center">
         {/* <img src={main_logo} alt="logo" className="w-40" /> */}
 
-        <h1 className="text-5xl">TimeWise</h1>
+        <img src="src\assets\TimeWISE logo.png" alt="logo" />
+
       </div>
 
       {/* Navigation */}
