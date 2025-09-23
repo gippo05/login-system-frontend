@@ -1,6 +1,7 @@
 import ClockingSystem from "../components/dashboardClockingSystem.jsx";
 import StatusDisplay from "../components/dashboardStatusDisplay.jsx";
 import TotalWorkingHours from "../components/dashboardTotalWorkingHours.jsx";
+import ActivityTracker from "../components/dashboardActivityTracker.jsx";
 
 
 const DashboardPage = ({onStatusChange, 
@@ -10,7 +11,8 @@ const DashboardPage = ({onStatusChange,
                         shiftType, 
                         onShiftStatusChange, 
                         temporaryShiftStat,
-                        setTemporaryShiftStat
+                        setTemporaryShiftStat,
+                        activityLog
                         }) => {
 
     return(
@@ -32,7 +34,10 @@ const DashboardPage = ({onStatusChange,
             <TotalWorkingHours />
         </div>
         
-        
+        <div className="mt-20">
+            <ActivityTracker status = {status}
+                             activityLog ={activityLog}/>
+        </div>
         
         
         </>

@@ -9,12 +9,23 @@ function App() {
   
   const [status, setStatus] = useState('Logged out');
   const [shiftType, setShiftType] = useState('RTO');
-  const [temporaryShiftStat, setTemporaryShiftStat] = useState('RTO');
+  const [temporaryShiftStat, setTemporaryShiftStat] = useState('Select Shift');
   const [temporaryStatus, setTemporaryStatus] = useState('Logged out');
+  const [activityLog, setActivityLog] = useState([]);
+
+  
 
   const onStatusChange = (e) => {
     setStatus(temporaryStatus);
     setShiftType(temporaryShiftStat);
+
+
+
+    const timestamp = new Date().toLocaleString();
+  setActivityLog(prevLog => [
+    ...prevLog,
+    {status: temporaryStatus, shift: temporaryShiftStat, time: timestamp}
+  ]);
   }
 
   return (
@@ -34,6 +45,7 @@ function App() {
             temporaryShiftStat = {temporaryShiftStat}
             setTemporaryStatus = {setTemporaryStatus}
             setTemporaryShiftStat ={setTemporaryShiftStat}
+            activityLog={activityLog}
             />} />
 
           </Routes>

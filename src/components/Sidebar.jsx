@@ -6,6 +6,7 @@ import {
   FaSignOutAlt 
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import main_logo from '../assets/TimeWISE logo.png'
 
 const SideBar = () => {
   const location = useLocation();
@@ -27,9 +28,8 @@ const handleLogout = () =>{
     <div className="w-64 h-screen sticky top-0 bg-[#2563EB] flex flex-col p-5 shadow-md text-white">
       {/* Logo */}
       <div className="mb-10 w-full flex justify-center">
-        {/* <img src={main_logo} alt="logo" className="w-40" /> */}
 
-        <img src="src\assets\TimeWISE logo.png" alt="logo" />
+        <img src={main_logo} alt="logo"/>
 
       </div>
 
