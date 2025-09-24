@@ -19,12 +19,6 @@ const TotalWorkingHours = () => {
     <h4 className="font-semibold text-sm text-gray-600">Total Hours worked this week</h4>
     <h2 className="text-xl font-bold"></h2>
   </div>
-
-  {/* Time */}
-  <div className="text-center">
-    <h4 className="font-semibold text-sm text-gray-600">Time</h4>
-    <h2 className="text-xl font-bold"></h2>
-  </div>
 </div>
     </>
     

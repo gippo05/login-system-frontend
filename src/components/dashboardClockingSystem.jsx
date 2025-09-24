@@ -4,7 +4,7 @@ const ClockingSystem = ({
   setTemporaryStatus,
   temporaryShiftStat,
   setTemporaryShiftStat,
-  status,
+  isShiftLocked
 }) => {
   const date = new Date();
 
@@ -62,7 +62,7 @@ const ClockingSystem = ({
             name="worktype"
             value={temporaryShiftStat}
             onChange={(e) => setTemporaryShiftStat(e.target.value)}
-            disabled={status === "Login"}
+            disabled={isShiftLocked}
             className="px-4 py-2 text-lg rounded-xl border border-gray-300
                        focus:ring-2 focus:ring-blue-400 focus:outline-none
                        disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed

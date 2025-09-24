@@ -12,12 +12,20 @@ function App() {
   const [temporaryShiftStat, setTemporaryShiftStat] = useState('Select Shift');
   const [temporaryStatus, setTemporaryStatus] = useState('Logged out');
   const [activityLog, setActivityLog] = useState([]);
+  const [isShiftLocked, setIsShiftLocked] = useState(false);
 
   
 
   const onStatusChange = (e) => {
     setStatus(temporaryStatus);
     setShiftType(temporaryShiftStat);
+
+    if(temporaryStatus === 'Login'){
+      setIsShiftLocked(true);
+    }
+    if(temporaryStatus === 'Logout'){
+      setIsShiftLocked(false);
+    }
 
 
 
@@ -46,6 +54,7 @@ function App() {
             setTemporaryStatus = {setTemporaryStatus}
             setTemporaryShiftStat ={setTemporaryShiftStat}
             activityLog={activityLog}
+            isShiftLocked = {isShiftLocked}
             />} />
 
           </Routes>
