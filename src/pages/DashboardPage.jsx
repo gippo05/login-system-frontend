@@ -3,6 +3,8 @@ import StatusDisplay from "../components/dashboardStatusDisplay.jsx";
 import TotalWorkingHours from "../components/dashboardTotalWorkingHours.jsx";
 import ActivityTracker from "../components/dashboardActivityTracker.jsx";
 import WfhFilingPrompt from "../components/dashboardWFHFiling.jsx";
+import QuickActions from "../components/dashboardQuickActions.jsx";
+
 
 const DashboardPage = ({
   onStatusChange,
@@ -41,7 +43,10 @@ const DashboardPage = ({
       <div className="mt-10 flex gap-40">
         <ActivityTracker status={status} activityLog={activityLog} />
         <WfhFilingPrompt />
-        
+      </div>
+
+      <div className="mt-10 flex gap-40">
+        <QuickActions />
       </div>
     </>
   );

@@ -7,10 +7,10 @@ import { useState } from 'react'
 
 function App() {
   
-  const [status, setStatus] = useState('Logged out');
+  const [status, setStatus] = useState('Clocked-out');
   const [shiftType, setShiftType] = useState('RTO');
   const [temporaryShiftStat, setTemporaryShiftStat] = useState('Select Shift');
-  const [temporaryStatus, setTemporaryStatus] = useState('Logged out');
+  const [temporaryStatus, setTemporaryStatus] = useState('Clocked-out');
   const [activityLog, setActivityLog] = useState([]);
   const [isShiftLocked, setIsShiftLocked] = useState(false);
 
@@ -20,10 +20,10 @@ function App() {
     setStatus(temporaryStatus);
     setShiftType(temporaryShiftStat);
 
-    if(temporaryStatus === 'Login'){
+    if(temporaryStatus === 'Clocked-in'){
       setIsShiftLocked(true);
     }
-    if(temporaryStatus === 'Logout'){
+    if(temporaryStatus === 'Clocked-out'){
       setIsShiftLocked(false);
     }
 
