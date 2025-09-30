@@ -1,9 +1,32 @@
 import logo from '../assets/TimeWISE logo.png'
-
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginPage = () => {
 
+const [username, setUsername] = useState("");
+const [password, setPassword] = useState("");
+const navigate = useNavigate();
 
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(`http://localhost:3000/api/login`, {
+        username,
+        password,
+      });
+
+      localStorage.setItem("token", res.data.token); //for saving jwt
+      alert("✅ Login successful!");
+      navigate("/dashboard");
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.message || "❌ Login failed");
+    }
+  };
 
 
   return (
@@ -23,10 +46,11 @@ const LoginPage = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Username */}
           <div>
-            <label className="block text-blue-900 text-sm font-medium mb-2">
+            <label className="block text-blue-900 text-sm font-medium mb-2"
+            >
               Username
             </label>
             <input
@@ -35,13 +59,16 @@ const LoginPage = () => {
               className="w-full px-4 py-3 rounded-xl bg-white/60 border border-blue-200
                          text-gray-900 placeholder-gray-500
                          focus:outline-none focus:ring-2 focus:ring-blue-400"
+                         value={username}
+            onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-blue-900 text-sm font-medium mb-2">
+            <label className="block text-blue-900 text-sm font-medium mb-2"
+            >
               Password
             </label>
             <input
@@ -50,6 +77,8 @@ const LoginPage = () => {
               className="w-full px-4 py-3 rounded-xl bg-white/60 border border-blue-200
                          text-gray-900 placeholder-gray-500
                          focus:outline-none focus:ring-2 focus:ring-blue-400"
+                         value={password}
+            onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
@@ -59,7 +88,7 @@ const LoginPage = () => {
             type="submit"
             className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 
                        hover:from-blue-600 hover:to-blue-700 
-                       text-white font-semibold transition transform hover:-translate-y-1 shadow-lg"
+                       text-white font-semibold transition transform hover:-translate-y-1 shadow-lg cursor-pointer"
           >
             Login
           </button>

@@ -89,7 +89,7 @@ const ClockingSystem = ({
             <option value="">Please select</option>
             <option value="Clocked-in">Clocked-in</option>
             <option value="Lunch">Lunch</option>
-            <option value="End Lunch">End Lunch</option>
+            <option value="End-Lunch">End Lunch</option>
             <option value="Clocked-out">Clocked-out</option>
           </select>
         </div>
