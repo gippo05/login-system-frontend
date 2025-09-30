@@ -11,7 +11,7 @@ export const SidebarMenu = [
         "link": "/attendance-table"
     },
     {
-        "id": 6,
+        "id": 3,
         "title": "Settings",
         "link": "/settings"
     },

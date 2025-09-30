@@ -4,6 +4,7 @@ import TotalWorkingHours from "../components/dashboardTotalWorkingHours.jsx";
 import ActivityTracker from "../components/dashboardActivityTracker.jsx";
 import WfhFilingPrompt from "../components/dashboardWFHFiling.jsx";
 import QuickActions from "../components/dashboardQuickActions.jsx";
+import { Outlet } from "react-router-dom";
 
 
 const DashboardPage = ({

@@ -14,7 +14,7 @@ const SideBar = () => {
 
 const navItems = [
   { path: "/dashboard", label: "Dashboard", icon: <FaTachometerAlt /> },
-  { path: "/dashboard/attendace-table", label: "Attendance Table", icon: <FaTable /> },
+  { path: "/dashboard/attendance-table", label: "Attendance Table", icon: <FaTable /> },
   { path: "/dashboard/settings", label: "Settings", icon: <FaCog /> },
 ];
 
