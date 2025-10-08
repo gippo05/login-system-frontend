@@ -10,7 +10,7 @@ const AttendanceTable = () => {
     const fetchAttendance = async () => {
       try {
         const token = localStorage.getItem("token"); // assuming JWT stored here
-        const res = await axios.get("http://localhost:3000/api/activity/all-attendance", {
+        const res = await axios.get("https://timewise-login-system-backend.onrender.com/api/activity/all-attendance", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAttendance(res.data);

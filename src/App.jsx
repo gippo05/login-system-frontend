@@ -62,7 +62,7 @@ function App() {
       if (endpoint) {
         const token = localStorage.getItem("token");
         const res = await axios.post(
-          `http://localhost:3000${endpoint}`,
+          `https://timewise-login-system-backend.onrender.com${endpoint}`,
           { shiftType: temporaryShiftStat },
           { headers: { Authorization: `Bearer ${token}` } }
         );
