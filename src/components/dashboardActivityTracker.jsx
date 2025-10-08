@@ -7,7 +7,7 @@ const ActivityTracker = ({ status }) => {
   const fetchActivities = async () => {
     try {
       const token = localStorage.getItem("token"); // 👈 from login
-      const res = await axios.get("http://localhost:3000/api/activity/attendance", {
+      const res = await axios.get("https://timewise-login-system-backend.onrender.com/api/activity/attendance", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setActivityLog(res.data);
