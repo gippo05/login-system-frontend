@@ -1,4 +1,4 @@
-export const SidebarMenu = [
+const SidebarMenu = [
 
     {
         "id": 1,
@@ -14,10 +14,7 @@ export const SidebarMenu = [
         "id": 3,
         "title": "Settings",
         "link": "/settings"
-    },
-    
-    
-    
-    //
-    
+    }
 ]
+
+export default SidebarMenu;

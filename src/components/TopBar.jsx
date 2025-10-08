@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { SidebarMenu } from "../data/sidebarmenu.js";
+import SidebarMenu from "../data/sidebarmenu.js";
 //
 const TopBar = () => {
   const location = useLocation();
