@@ -1,8 +1,14 @@
 import { useLocation } from "react-router-dom";
-import SidebarMenu from "../data/sidebarmenu.js";
+
 //
 const TopBar = () => {
   const location = useLocation();
+
+    const SidebarMenu = [
+    { id: 1, title: "Dashboard", link: "/dashboard" },
+    { id: 2, title: "Attendance Table", link: "/attendance-table" },
+    { id: 3, title: "Settings", link: "/settings" },
+  ];
 
   // Find the menu item that matches the current path
   const currentItem = SidebarMenu.find((item) => item.link === location.pathname);
