@@ -16,31 +16,25 @@ const ClockingSystem = ({
     "August", "September", "October", "November", "December"
   ];
 
-  const dayOfWeek = days[date.getDay()];
-  const month = months[date.getMonth()];
-  const currentDate = date.getDate();
-  const year = date.getFullYear();
+  const today = `${days[date.getDay()]}, ${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 
-  const today = `${dayOfWeek}, ${month} ${currentDate}, ${year}`;
-
-  // Wrap your status change in form submit
   const handleSubmit = (e) => {
-    e.preventDefault(); // prevent page refresh
-    onStatusChange();   // call your parent handler
+    e.preventDefault();
+    onStatusChange();
   };
 
   return (
-    <div className="w-full bg-white rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mt-5">
+    <div className="w-full bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 mt-5">
       {/* Greeting */}
-      <div>
-        <h2 className="text-3xl font-bold text-gray-800">👋 Welcome, User!</h2>
-        <p className="text-gray-500 mt-2">{today}</p>
+      <div className="w-full md:w-auto text-center md:text-left">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">👋 Welcome, User!</h2>
+        <p className="text-gray-500 mt-2 text-sm sm:text-base">{today}</p>
       </div>
 
-      {/* Controls inside a form */}
-      <form 
+      {/* Form Controls */}
+      <form
         onSubmit={handleSubmit}
-        className="flex flex-col sm:flex-row gap-6 w-full md:w-auto"
+        className="flex flex-col sm:flex-row w-full md:w-auto gap-4 sm:gap-6"
       >
         {/* Shift Type */}
         <div className="flex flex-col w-full sm:w-48">
@@ -57,7 +51,7 @@ const ClockingSystem = ({
             onChange={(e) => setTemporaryShiftStat(e.target.value)}
             disabled={isShiftLocked}
             required
-            className="px-4 py-2 text-lg rounded-xl border border-gray-300
+            className="px-3 py-2 text-base sm:text-lg rounded-xl border border-gray-300
                        focus:ring-2 focus:ring-blue-400 focus:outline-none
                        disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed
                        transition-colors duration-200 cursor-pointer"
@@ -82,7 +76,7 @@ const ClockingSystem = ({
             value={temporaryStatus}
             onChange={(e) => setTemporaryStatus(e.target.value)}
             required
-            className="px-4 py-2 text-lg rounded-xl border border-gray-300
+            className="px-3 py-2 text-base sm:text-lg rounded-xl border border-gray-300
                        focus:ring-2 focus:ring-blue-400 focus:outline-none
                        transition-colors duration-200 cursor-pointer"
           >
@@ -95,10 +89,10 @@ const ClockingSystem = ({
         </div>
 
         {/* Button */}
-        <div className="flex items-end">
+        <div className="flex items-end justify-center sm:justify-start">
           <button
             type="submit"
-            className="px-6 py-2 text-lg font-semibold text-white bg-blue-500
+            className="w-full sm:w-auto px-5 sm:px-6 py-2 text-base sm:text-lg font-semibold text-white bg-blue-500
                        rounded-xl shadow-md hover:bg-blue-600 active:bg-blue-700
                        transition-all duration-200 cursor-pointer"
           >

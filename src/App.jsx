@@ -8,6 +8,7 @@ import AttendanceTable from "./components/AttendanceTable.jsx";
 import { useState } from "react";
 import "./App.css";
 import axios from "axios";
+import Settings from "./components/Settings.jsx";
 
 // Dashboard layout wrapper
 function DashboardLayout({
@@ -127,6 +128,7 @@ function App() {
 
         {/* Attendance table page */}
         <Route path="attendance-table" element={<AttendanceTable />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
     </Routes>
   );
