@@ -35,13 +35,13 @@ const StatusDisplay = ({ status, shiftType }) => {
         {/* Status */}
         <div className="text-center">
           <h4 className="font-medium text-sm text-gray-500">Status</h4>
-          <h2 className="text-2xl font-bold">{status}</h2>
+          <h2 className="text-2xl font-bold ">{status}</h2>
         </div>
 
         {/* Shift Type */}
         <div className="text-center">
           <h4 className="font-medium text-sm text-gray-500">Shift Type</h4>
-          <h2 className="text-2xl font-bold">{shiftType}</h2>
+          <h2 className="text-2xl font-bold ">{shiftType}</h2>
         </div>
 
         {/* Time */}
