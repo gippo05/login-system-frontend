@@ -28,9 +28,9 @@ export default function Settings() {
   }
 
   try {
-    const token = localStorage.getItem("token"); // or however you store it
+    const token = localStorage.getItem("token");
     const res = await axios.patch(
-      "http://localhost:3000/api/update-password",
+      "https://timewise-login-system-backend.onrender.com/api/update-password",
       {
         password: currentPassword,
         newPassword,
@@ -55,7 +55,7 @@ export default function Settings() {
   return (
     <div className="max-w-lg mx-auto mt-10 space-y-8">
 
-      {/* Change Password */}
+      
       <Card>
         <CardContent className="p-6 space-y-4">
           <h2 className="text-xl font-semibold mb-2">Change Password</h2>
