@@ -1,12 +1,87 @@
-# React + Vite
+# 🕒 TimeWise – Attendance Tracking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TimeWise** is a web-based attendance tracking system built to simplify daily time monitoring for teams and individuals. It features secure authentication, real-time logging, and a clean, modern interface designed for efficiency and reliability.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- **🔐 JWT Authentication**  
+  Secure login and logout functionality powered by JSON Web Tokens (JWT).  
+  Only authorized users can access protected routes and perform time-related actions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **🕓 Time Recording**  
+  Users can clock in and out, with each record accurately saved to the database.  
+  The app automatically timestamps every login and logout session.
+
+- **📊 Attendance Management**  
+  View, track, and manage attendance history (admins can access full logs if role-based access is added later).
+
+- **💻 Modern Tech Stack**
+  - **Frontend:** React + TailwindCSS (modern dark theme)
+  - **Backend:** Node.js + Express.js
+  - **Database:** MongoDB
+  - **Authentication:** JWT
+  - **Deployment:** Vercel (frontend) & Render (backend)
+
+---
+
+## ⚙️ Setup and Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/TimeWise.git
+   cd TimeWise
+Install dependencies
+
+bash
+Copy code
+# Backend
+cd backend
+npm install
+
+# Frontend
+cd ../frontend
+npm install
+Create a .env file in the backend directory:
+
+ini
+Copy code
+MONGO_URI=your_mongo_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+Run the app
+
+bash
+Copy code
+# Backend
+npm run dev
+
+# Frontend (in another terminal)
+npm start
+🔒 Authentication Flow
+User logs in with email and password.
+
+Server verifies credentials and returns a JWT.
+
+Client stores token (in localStorage or context).
+
+Protected routes require token validation before granting access.
+
+Logout clears stored token and ends session.
+
+🧠 Future Enhancements
+Admin dashboard for user and attendance management
+
+Role-based access control
+
+Analytics and reporting features
+
+Biometric or QR code integration for clocking in/out
+
+Push notifications and reminders
+
+👨‍💻 Author
+Gipps
+Full Stack Developer in progress | Building practical tools with the MERN stack
+
